@@ -18,7 +18,7 @@ export VAULT_TOKEN=<VAULT_TOKEN>
 ### terraform variables
 this project has the following mandatory variables that need to be provided using `tfvars` file:
 
-```text
+```bash
 # Namespaced path to the Gitlab project where the JWT integration with Vault has to be setup
 gitlab_project_path = "srinat999/gitlab-vault-integration"
 # URL where the vault server can be reached
