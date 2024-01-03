@@ -7,7 +7,7 @@ terraform{
 }
 
 data "gitlab_project" "vault" {
-  id = var.gitlab_project_id
+  path_with_namespace = var.gitlab_project_path
 }
 
 
@@ -29,5 +29,12 @@ resource "gitlab_project_variable" "vault_auth_path" {
   project   = data.gitlab_project.vault.id
   key       = "VAULT_AUTH_PATH"
   value     = vault_jwt_auth_backend.gitlab.path
+  protected = false
+}
+
+resource "gitlab_project_variable" "vault_namespace" {
+  project   = data.gitlab_project.vault.id
+  key       = "VAULT_NAMESPACE"
+  value     = var.gitlab_vault_server_namespace
   protected = false
 }

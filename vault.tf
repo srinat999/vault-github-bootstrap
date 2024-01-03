@@ -1,3 +1,7 @@
+provider "vault" {
+  address = var.gitlab_vault_server_url
+}
+
 resource "vault_jwt_auth_backend" "gitlab" {
   description  = "JWT auth backend for Gitlab-CI pipeline"
   path         = "gitlab_jwt"

@@ -1,4 +1,4 @@
-variable "gitlab_project_id" {
+variable "gitlab_project_path" {
   type        = string
   description = "project id you want to enable JWT auth for"
 }
@@ -25,4 +25,9 @@ variable "gitlab_token_type" {
 variable "gitlab_vault_server_url" {
   type        = string
   description = "Public address of the Vault server"
+}
+
+variable "gitlab_vault_server_namespace" {
+  type        = string
+  description = "Namespace of the Vault server where the secrets are stored"
 }
