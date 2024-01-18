@@ -65,22 +65,6 @@ resource "vault_jwt_auth_backend_role" "pipeline" {
   }
 }
 
-resource "vault_jwt_auth_backend_role" "generic" {
-  backend   = vault_jwt_auth_backend.gitlab.path
-  role_type = "jwt"
-
-  role_name      = "generic"
-  token_policies = ["default", "pipeline-policy"]
-
-  bound_claims = {
-    project_id = data.gitlab_project.vault.id
-    ref        = "main"
-    ref_type   = "branch"
-  }
-
-  user_claim = "user_email"
-}
-
 resource "vault_mount" "secret-mount" {
   path        = "kv"
   type        = "kv-v2"

@@ -7,13 +7,13 @@ variable "gitlab_project_path" {
 variable "gitlab_default_lease_ttl" {
   type        = string
   description = "Default lease TTL for Vault tokens"
-  default     = "12h"
+  default     = "10s"
 }
 
 variable "gitlab_max_lease_ttl" {
   type        = string
   description = "Maximum lease TTL for Vault tokens"
-  default     = "768h"
+  default     = "10s"
 }
 
 variable "gitlab_token_type" {
